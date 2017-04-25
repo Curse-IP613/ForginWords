@@ -4,6 +4,7 @@
 
 int main()
 {
+int number=0;
 char dirname[30]="./dictionary/";
 char r[5]=".txt";
 char namefile[10];
@@ -14,15 +15,13 @@ strncat(namefile, r, 4);
 strncat(dirname, namefile, 10);
 FILE *pf;
 pf=fopen(dirname, "w+");
-
+printf("Enter the number of words you want to enter\n");
+scanf("%i", &number);
 printf("Enter words (english.russian)\n");
-while(1){
-word[0]=" ";
+for(int i=0;i<number;i++){
 scanf("%s", &word);
-if(word[0]==" ") break;
-fprintf(pf, "%s\n", word);
-}
+fprintf(pf, "%s\n", word);}
 fclose(pf);
-
+printf("Dictionary %s created\n", namefile);
 return 0;
 }
