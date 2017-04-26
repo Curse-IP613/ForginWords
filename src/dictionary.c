@@ -16,13 +16,15 @@ char fileopen[20];
 char dirname[30]="./dictionary/";
 char *estr;
 char str[50];
+char *point;
+int n,i;
 scanf("%s",&fileopen);
 strncat(dirname, fileopen, 20);
 FILE *pf;
 pf=fopen(dirname,"r");
    if (pf == NULL) {printf ("ERROR !!! \n"); return -1;}
    else printf ("OKEY \n");
- printf ("STROKI WAS READED \n");
+ printf ("Let's go: \n");
 
    //Чтение (построчно) данных из файла в бесконечном цикле
    while (1)
@@ -52,7 +54,13 @@ pf=fopen(dirname,"r");
       }
       //Если файл не закончился, и не было ошибки чтения 
       //выводим считанную строку  на экран
-      printf ("     %s",str);
+
+point=strstr(str,".")+1;
+n=strcspn(str,point)-1;
+printf("   ENG: ");
+for(i=0;i<n;i++)
+printf("%c",str[i]);
+	printf ("  RUS: %s \n",point);
    }
 
    // Закрываем файл
