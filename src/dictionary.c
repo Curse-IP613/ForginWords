@@ -21,6 +21,7 @@ int main(void)
     char str[50];
     char *point;
     int n, i;
+    char otvet;
     cin >> fileopen;
     strncat(dirname, fileopen, 20);
     FILE *pf;
@@ -50,8 +51,14 @@ int main(void)
         cout << "   ENG: ";
         for (i = 0; i < n; i++)
             cout << str[i];
-
-        cout << "  RUS: " << point << endl;
+        cout << "\nЗнаете перевод?[Y/N]: ";
+        cin >> otvet;
+        if (otvet == 'Y' || otvet == 'y') {
+            cout << "next: \n ";
+        } else if (otvet == 'N' || otvet == 'n') {
+            cout << "  RUS: " << point << endl;
+        } else
+            cout << "uncorrect\n";
     }
 
     cout << "CLOSE FILE: \n";
