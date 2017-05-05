@@ -6,6 +6,17 @@
 
 using namespace std;
 
+int checkNumber (int &number)
+{
+    cout << "Enter the number of words you want to enter\n";
+    cin >> number;
+while(number<=0){
+ 
+ cout << "Enter correct number of words: ";
+cin >> number;
+}
+}
+
 int main()
 {
     int number = 0;
@@ -17,8 +28,7 @@ int main()
     cin >> namefile;
     strncat(namefile, r, 4);
     strncat(dirname, namefile, 10);
-    cout << "Enter the number of words you want to enter\n";
-    cin >> number;
+checkNumber (number);
     cout << "Enter words (english.russian)\n";
     ofstream fout(dirname);
     for (int i = 0; i <= number; i++) {
