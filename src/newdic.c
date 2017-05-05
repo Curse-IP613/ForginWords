@@ -17,20 +17,9 @@ cin >> number;
 }
 }
 
-int main()
-{
-    int number = 0;
-    char dirname[30] = "./dictionary/";
-    char r[5] = ".txt";
-    char namefile[10];
-    char word[100];
-    cout << "Enter file name\n";
-    cin >> namefile;
-    strncat(namefile, r, 4);
-    strncat(dirname, namefile, 10);
-checkNumber (number);
+void createFile(char* filepath, char* word, char* namefile, int &number){
     cout << "Enter words (english.russian)\n";
-    ofstream fout(dirname);
+    ofstream fout(filepath);
     for (int i = 0; i <= number; i++) {
         gets(word);
         fout << word;
@@ -39,6 +28,23 @@ checkNumber (number);
     }
     fout.close();
     cout << "Dictionary " << namefile << " created\n";
+}
+
+int main()
+{
+    int number = 0;
+    char dirname[30] = "./dictionary/";
+    char r[5] = ".txt";
+    char namefile[10];
+    char word[100];
+    char filepath[50]="";
+    cout << "Enter file name\n";
+    cin >> namefile;
+    strncat(filepath, dirname, 30);
+    strncat(filepath, namefile, 10);
+    strncat(filepath, r, 4); 
+checkNumber (number);
+createFile(filepath, word, namefile, number);
     return 0;
 }
 
