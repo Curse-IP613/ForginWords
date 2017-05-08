@@ -5,15 +5,19 @@
 #include <string.h>
 using namespace std;
 
-int main()
-{
-    DIR *dir;
+void dirlist(){
+DIR *dir;
     struct dirent *ent;
     char directory[255] = "./dictionary/";
     dir = opendir(directory);
     while ((ent = readdir(dir)) != 0)
         cout << ent->d_name << endl;
     closedir(dir);
+}
+
+int main()
+{
+    dirlist();
     cout << "Enter name of dictionary:";
     char fileopen[20];
     char dirname[30] = "./dictionary/";
@@ -39,7 +43,7 @@ int main()
 
         if (estr == NULL) {
             if (feof(pf) != 0) {
-                cout << "\n REad the END \n";
+                cout << "\n Read is END \n";
                 break;
             } else {
                 cout << "\n ERROR read file \n";
@@ -52,7 +56,7 @@ int main()
         cout << "   ENG: ";
         for (i = 0; i < n; i++)
             cout << str[i];
-        cout << "\nЗнаете перевод?[Y/N]: ";
+        cout << "\n Are you know translate?[Y/N]: ";
         cin >> otvet;
 
         if (otvet == 'Y' || otvet == 'y') {
