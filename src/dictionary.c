@@ -1,18 +1,28 @@
 #include <dirent.h>
+#include <fstream>
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 using namespace std;
 
-void dirlist(){
-DIR *dir;
+void dirlist()
+{
+    DIR *dir;
     struct dirent *ent;
     char directory[255] = "./dictionary/";
     dir = opendir(directory);
     while ((ent = readdir(dir)) != 0)
         cout << ent->d_name << endl;
     closedir(dir);
+}
+
+void checkFile(char file_name[20])
+{
+    ifstream file;
+    file.open(file_name);
+    if (!file)
+        cout << "\nCant find this file : " << file_name;
 }
 
 int main()
@@ -28,11 +38,13 @@ int main()
     char otvet;
     int numotvet;
     cin >> fileopen;
+
     strncat(dirname, fileopen, 20);
+    checkFile(dirname);
     FILE *pf;
     pf = fopen(dirname, "r");
     if (pf == NULL) {
-        cout << "ERROR !!! \n";
+        cout << " ERROR !!! \n";
         return -1;
     } else
         cout << "OKEY \n";
