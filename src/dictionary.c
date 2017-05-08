@@ -25,7 +25,7 @@ void checkFile(char file_name[20])
         cout << "\nCant find this file : " << file_name;
 }
 
-int main()
+int ChoiceDict()
 {
     dirlist();
     cout << "Enter name of dictionary:";

@@ -1,6 +1,8 @@
 #include <stdio.h>
+#include "ForginWords.h"
+#include "dictionary.c"
 
-main()
+int main()
 {
     int Number;
     printf("1-Choice dictionary \n");
@@ -11,6 +13,7 @@ main()
     switch (Number) {
     case 1:
         printf("Func 1 \n");
+	ChoiceDict();
         break;
     case 2:
         printf("Func 2 \n");
