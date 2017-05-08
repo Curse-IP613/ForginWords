@@ -5,7 +5,7 @@
 #include <string.h>
 using namespace std;
 
-int main(void)
+int main()
 {
     DIR *dir;
     struct dirent *ent;
@@ -22,6 +22,7 @@ int main(void)
     char *point;
     int n, i;
     char otvet;
+    int numotvet;
     cin >> fileopen;
     strncat(dirname, fileopen, 20);
     FILE *pf;
@@ -53,12 +54,24 @@ int main(void)
             cout << str[i];
         cout << "\nЗнаете перевод?[Y/N]: ";
         cin >> otvet;
+
         if (otvet == 'Y' || otvet == 'y') {
             cout << "next: \n ";
         } else if (otvet == 'N' || otvet == 'n') {
             cout << "  RUS: " << point << endl;
         } else
-            cout << "uncorrect\n";
+            do {
+                cout << "Enter correct answer!\n";
+                numotvet = 0;
+                cin >> otvet;
+                if (otvet == 'Y' || otvet == 'y') {
+                    numotvet = 1;
+                    cout << "next: \n ";
+                } else if (otvet == 'N' || otvet == 'n') {
+                    numotvet = 1;
+                    cout << "  RUS: " << point << endl;
+                }
+            } while (numotvet != 1);
     }
 
     cout << "CLOSE FILE: \n";
