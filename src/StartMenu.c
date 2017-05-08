@@ -1,6 +1,10 @@
 #include <stdio.h>
+#include <iostream>
 #include "ForginWords.h"
 #include "dictionary.c"
+#include "newdic.c"
+using namespace std;
+
 
 int main()
 {
@@ -16,8 +20,11 @@ int main()
 	ChoiceDict();
         break;
     case 2:
+{
         printf("Func 2 \n");
+	NewDic();
         break;
+}
     case 0:
         return 0;
         break;
