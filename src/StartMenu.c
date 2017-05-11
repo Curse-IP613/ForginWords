@@ -9,6 +9,9 @@ using namespace std;
 int main()
 {
     int Number;
+    while(1)
+{
+    system ("clear");
     printf("1-Choice dictionary \n");
     printf("2-Create personal dictionary \n");
     printf("0-Exit \n");
@@ -16,18 +19,23 @@ int main()
     scanf("%i", &Number);
     switch (Number) {
     case 1:
-        printf("Func 1 \n");
+{
+	system ("clear");
 	ChoiceDict();
+	getchar();
         break;
+}
     case 2:
 {
-        printf("Func 2 \n");
+	system ("clear");
 	NewDic();
+	getchar();
         break;
 }
     case 0:
         return 0;
         break;
     }
+}
 }
 
