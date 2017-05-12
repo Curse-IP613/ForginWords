@@ -4,11 +4,11 @@ CFLAGS = -Wall -Werror -MP -MMD
 all :
 	make bin/dictionary
 
-bin/dictionary : build/main.o build/dictionary.o
-	gcc build/main.o build/dictionary.o -o bin/dictionary $(CFLAGS)
+bin/dictionary : build/dictionary.o build/dictionary.o
+	gcc build/dictionary.o build/dictionary.o -o bin/dictionary $(CFLAGS)
 
-build/main.o : src/main.c src/dictionary.h
-	gcc -c src/main.c -o build/main.o $(CFLAGS)
+build/dictionary.o : src/dictionary.c src/dictionary.h
+	gcc -c src/dictionary.c -o build/dictionary.o $(CFLAGS)
 
 build/dictionary.o : src/dictionary.c src/dictionary.h
 	gcc -c src/dictionary.c -o build/dictionary.o $(CFLAGS)
@@ -17,13 +17,13 @@ test :
 	make bin/dictionary-test
 	bin/dictionary-test
 
-bin/dictionary-test : build/test/main.o build/test/dictionary.o
+bin/dictionary-test : build/test/dictionary.o build/test/dictionary.o
 	@echo "Making binary"
-	@gcc build/test/main.o build/test/dictionary.o build/test/dictionary.o -o bin/dictionary-test $(CFLAGS)
+	@gcc build/test/dictionary.o build/test/dictionary.o build/test/dictionary.o -o bin/dictionary-test $(CFLAGS)
 
-build/test/main.o : src/dictionary.h test/main.c
-	@echo "Making main.o"
-	@gcc -I thirdparty -c test/main.c -o build/test/main.o $(CFLAGS)
+build/test/dictionary.o : src/dictionary.h test/dictionary.c
+	@echo "Making dictionary.o"
+	@gcc -I thirdparty -c test/dictionary.c -o build/test/dictionary.o $(CFLAGS)
 	@gcc -c src/dictionary.c -o build/test/dictionary.o $(CFLAGS) 
 
 build/test/dictionary-test.o : src/dictionary.h test/dictionary.c
