@@ -17,7 +17,7 @@ void dirlist()
     closedir(dir);
 }
 
-void checkFile(char file_name[20])
+void FileValidation(char file_name[20])
 {
     ifstream file;
     file.open(file_name);
@@ -40,7 +40,7 @@ int ChoiceDict()
     cin >> fileopen;
 
     strncat(dirname, fileopen, 20);
-    checkFile(dirname);
+    FileValidation(dirname);
     FILE *pf;
     pf = fopen(dirname, "r");
     if (pf == NULL) {
