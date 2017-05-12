@@ -5,7 +5,6 @@
 #include "newdic.c"
 using namespace std;
 
-
 int main()
 {
     int Number;
