@@ -1,6 +1,11 @@
 #include <stdio.h>
+#include <iostream>
+#include "ForginWords.h"
+#include "dictionary.c"
+#include "newdic.c"
+using namespace std;
 
-int switchfunc(int x);
+
 int Number;
 main()
 {
@@ -13,21 +18,5 @@ main()
     switchfunc(x);    
 }
 
-int switchfunc(x){
-Number = x;
-	switch (Number) 
-	{
-    case 1:
-       printf("Func 1 \n");
-        return 1;
-        break;
-    case 2:
-       printf("Func 2 \n");
-        return 2;
-        break;
-    case 0:
-        return 0;
-        break;
-    }	
-}
+
 

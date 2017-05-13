@@ -1,11 +1,40 @@
 #include <dirent.h>
+#include <fstream>
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "ForginWords.h"
 using namespace std;
 
-int main(void)
+int switchfunc(x){
+
+	Number = x;
+	switch (Number) 
+	{
+    case 1:
+	{
+        system ("clear");
+		ChoiceDict();
+		getchar();
+        return 1;
+        break;
+  	}
+    case 2:
+	{
+        system ("clear");
+		NewDic();
+		getchar();
+        return 2;
+        break;
+    }
+    case 0:
+        return 0;
+        break;
+    }	
+}
+
+void dirlist()
 {
     DIR *dir;
     struct dirent *ent;
@@ -14,6 +43,19 @@ int main(void)
     while ((ent = readdir(dir)) != 0)
         cout << ent->d_name << endl;
     closedir(dir);
+}
+
+void checkFile(char file_name[20])
+{
+    ifstream file;
+    file.open(file_name);
+    if (!file)
+        cout << "\nCant find this file : " << file_name;
+}
+
+int ChoiceDict()
+{
+    dirlist();
     cout << "Enter name of dictionary:";
     char fileopen[20];
     char dirname[30] = "./dictionary/";
@@ -22,12 +64,15 @@ int main(void)
     char *point;
     int n, i;
     char otvet;
+    int numotvet;
     cin >> fileopen;
+
     strncat(dirname, fileopen, 20);
+    checkFile(dirname);
     FILE *pf;
     pf = fopen(dirname, "r");
     if (pf == NULL) {
-        cout << "ERROR !!! \n";
+        cout << " ERROR !!! \n";
         return -1;
     } else
         cout << "OKEY \n";
@@ -38,7 +83,7 @@ int main(void)
 
         if (estr == NULL) {
             if (feof(pf) != 0) {
-                cout << "\n REad the END \n";
+                cout << "\n Read is END \n";
                 break;
             } else {
                 cout << "\n ERROR read file \n";
@@ -51,14 +96,26 @@ int main(void)
         cout << "   ENG: ";
         for (i = 0; i < n; i++)
             cout << str[i];
-        cout << "\nЗнаете перевод?[Y/N]: ";
+        cout << "\n Are you know translate?[Y/N]: ";
         cin >> otvet;
+
         if (otvet == 'Y' || otvet == 'y') {
             cout << "next: \n ";
         } else if (otvet == 'N' || otvet == 'n') {
             cout << "  RUS: " << point << endl;
         } else
-            cout << "uncorrect\n";
+            do {
+                cout << "Enter correct answer!\n";
+                numotvet = 0;
+                cin >> otvet;
+                if (otvet == 'Y' || otvet == 'y') {
+                    numotvet = 1;
+                    cout << "next: \n ";
+                } else if (otvet == 'N' || otvet == 'n') {
+                    numotvet = 1;
+                    cout << "  RUS: " << point << endl;
+                }
+            } while (numotvet != 1);
     }
 
     cout << "CLOSE FILE: \n";
