@@ -5,34 +5,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include "ForginWords.h"
+
 using namespace std;
-
-int switchfunc(x){
-
-	Number = x;
-	switch (Number) 
-	{
-    case 1:
-	{
-        system ("clear");
-		ChoiceDict();
-		getchar();
-        return 1;
-        break;
-  	}
-    case 2:
-	{
-        system ("clear");
-		NewDic();
-		getchar();
-        return 2;
-        break;
-    }
-    case 0:
-        return 0;
-        break;
-    }	
-}
 
 void dirlist()
 {
@@ -45,7 +19,7 @@ void dirlist()
     closedir(dir);
 }
 
-void checkFile(char file_name[20])
+void FileValidation(char file_name[20])
 {
     ifstream file;
     file.open(file_name);
@@ -68,7 +42,7 @@ int ChoiceDict()
     cin >> fileopen;
 
     strncat(dirname, fileopen, 20);
-    checkFile(dirname);
+    FileValidation(dirname);
     FILE *pf;
     pf = fopen(dirname, "r");
     if (pf == NULL) {

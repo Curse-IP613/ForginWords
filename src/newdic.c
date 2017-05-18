@@ -15,7 +15,6 @@ void checkNumber(int &number)
         cout << "Enter correct number of words: ";
         cin >> number;
     }
-    
 }
 
 void createFile(char *filepath, char *word, char *namefile, int &number)
@@ -32,7 +31,7 @@ void createFile(char *filepath, char *word, char *namefile, int &number)
     cout << "Dictionary " << namefile << " is created\n";
 }
 
-int checkFile(char *filepath)
+void checkFile(char *filepath)
 {
     char otvet;
     int number = 0;
@@ -41,18 +40,9 @@ int checkFile(char *filepath)
     if (file) {
         cout << "File is exist. Do you want to replace this file? (Y/N)\n";
         cin >> otvet;
-        checkanswer(otvet);
-        
-    } else
-        return 3;
-    return 0;
-}
-////////////////////////////////////
-int checkanswer(otvet) {
-			
-        	if (otvet == 'Y' || otvet == 'y')
+        if (otvet == 'Y' || otvet == 'y')
             return 1;
-          else {
+        else {
             if (otvet == 'N' || otvet == 'n')
                 return 2;
             else
@@ -69,9 +59,11 @@ int checkanswer(otvet) {
                     }
                     cin >> otvet;
                 } while (number != 1);
-		  }
-	}
-////////////////////////////////
+        }
+    } else
+        return 3;
+    return 0;
+}
 
 int NewDic()
 {

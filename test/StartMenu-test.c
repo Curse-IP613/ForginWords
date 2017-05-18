@@ -49,7 +49,7 @@ CTEST(test_number_3, switchfunc)
 }
 ///************************************///
 
-CTEST(test_number_4, checkanswer)
+/*CTEST(test_number_4, checkanswer)
 {
     // Given
     const int a = 'Y';
@@ -65,7 +65,7 @@ CTEST(test_number_4, checkanswer)
 
 
 
-
+*/
 
 ///************************************///
 ///************************************///
