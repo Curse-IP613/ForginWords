@@ -10,10 +10,14 @@ void dirlist()
 {
     DIR *dir;
     struct dirent *ent;
+    const char * d_name;
     char directory[255] = "./dictionary/";
     dir = opendir(directory);
-    while ((ent = readdir(dir)) != 0)
+    while ((ent = readdir(dir)) != 0){
+	d_name=ent->d_name;
+	if (strncmp(d_name, ".", strlen(".")))
         cout << ent->d_name << endl;
+	}
     closedir(dir);
 }
 
