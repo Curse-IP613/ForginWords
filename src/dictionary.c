@@ -89,7 +89,7 @@ int ChoiceDict()
                 }
             } while (numotvet != 1);
     }
-
+    getchar();
     cout << "CLOSE FILE: \n";
     if (fclose(pf) == EOF)
         cout << "ERROR \n";
