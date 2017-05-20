@@ -15,7 +15,7 @@ int main()
     printf("2-Create personal dictionary \n");
     printf("0-Exit \n");
     printf("Enter number point menu: \n");
-    scanf("%i", &Number);
+    cin>>Number;
     switch (Number) {
     case 1:
 {
@@ -31,9 +31,11 @@ int main()
 	getchar();
         break;
 }
-    case 0:
+    case 0:{
         return 0;
         break;
+}
+   default: break;
     }
 }
 }

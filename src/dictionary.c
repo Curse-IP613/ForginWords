@@ -21,12 +21,16 @@ void dirlist()
     closedir(dir);
 }
 
-void FileValidation(char file_name[20])
+int FileValidation(char file_name[20])
 {
     ifstream file;
     file.open(file_name);
-    if (!file)
+    if (!file){
         cout << "\nCant find this file : " << file_name;
+	getchar();
+	return 0;
+	}
+	else return 1;
 }
 
 int ChoiceDict()
@@ -44,7 +48,10 @@ int ChoiceDict()
     cin >> fileopen;
 
     strncat(dirname, fileopen, 20);
-    FileValidation(dirname);
+    if(FileValidation(dirname)==0){
+	cout<<endl<<"func retorn 0"<<endl;
+	return 0;
+	}
     FILE *pf;
     pf = fopen(dirname, "r");
     if (pf == NULL) {
@@ -69,7 +76,6 @@ int ChoiceDict()
 
         point = strstr(str, ".") + 1;
         n = strcspn(str, point) - 1;
-        cout << "   ENG: ";
         for (i = 0; i < n; i++)
             cout << str[i];
         cout << "\n Are you know translate?[Y/N]: ";
@@ -78,7 +84,7 @@ int ChoiceDict()
         if (otvet == 'Y' || otvet == 'y') {
             cout << "next: \n ";
         } else if (otvet == 'N' || otvet == 'n') {
-            cout << "  RUS: " << point << endl;
+            cout << point << endl;
         } else
             do {
                 cout << "Enter correct answer!\n";
