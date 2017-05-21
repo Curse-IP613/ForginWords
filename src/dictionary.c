@@ -4,27 +4,61 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "ForginWords.h"
-
 using namespace std;
 
+/*int switchfunc(x){
+Number = x;
+    switch (Number) {
+    case 1:
+{
+	system ("clear");
+	ChoiceDict();
+	getchar();
+        return 1;
+        break;
+}
+    case 2:
+{
+	system ("clear");
+	NewDic();
+	getchar();
+        return 2;
+        break;
+}
+    case 0:
+{
+        return 0;
+        break;
+}
+   default: break;
+    }
+}
+*/
 void dirlist()
 {
     DIR *dir;
     struct dirent *ent;
+    const char * d_name;
     char directory[255] = "./dictionary/";
     dir = opendir(directory);
-    while ((ent = readdir(dir)) != 0)
+    while ((ent = readdir(dir)) != 0){
+	d_name=ent->d_name;
+	if (strncmp(d_name, ".", strlen(".")))
         cout << ent->d_name << endl;
+	}
     closedir(dir);
 }
 
-void FileValidation(char file_name[20])
+int FileValidation(char file_name[20])
 {
     ifstream file;
     file.open(file_name);
-    if (!file)
+    if (!file){
         cout << "\nCant find this file : " << file_name;
+	getchar();
+	return 0;
+	}
+	else return 1;
 }
 
 int ChoiceDict()
@@ -42,7 +76,10 @@ int ChoiceDict()
     cin >> fileopen;
 
     strncat(dirname, fileopen, 20);
-    FileValidation(dirname);
+    if(FileValidation(dirname)==0){
+	cout<<endl<<"func retorn 0"<<endl;
+	return 0;
+	}
     FILE *pf;
     pf = fopen(dirname, "r");
     if (pf == NULL) {
@@ -67,7 +104,6 @@ int ChoiceDict()
 
         point = strstr(str, ".") + 1;
         n = strcspn(str, point) - 1;
-        cout << "   ENG: ";
         for (i = 0; i < n; i++)
             cout << str[i];
         cout << "\n Are you know translate?[Y/N]: ";
@@ -76,7 +112,7 @@ int ChoiceDict()
         if (otvet == 'Y' || otvet == 'y') {
             cout << "next: \n ";
         } else if (otvet == 'N' || otvet == 'n') {
-            cout << "  RUS: " << point << endl;
+            cout << point << endl;
         } else
             do {
                 cout << "Enter correct answer!\n";
@@ -91,7 +127,7 @@ int ChoiceDict()
                 }
             } while (numotvet != 1);
     }
-
+    getchar();
     cout << "CLOSE FILE: \n";
     if (fclose(pf) == EOF)
         cout << "ERROR \n";

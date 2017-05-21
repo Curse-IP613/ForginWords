@@ -3,7 +3,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "ForginWords.h"
 
 using namespace std;
 
@@ -31,7 +30,7 @@ void createFile(char *filepath, char *word, char *namefile, int &number)
     cout << "Dictionary " << namefile << " is created\n";
 }
 
-void checkFile(char *filepath)
+int checkFile(char *filepath)
 {
     char otvet;
     int number = 0;
@@ -104,6 +103,7 @@ int NewDic()
     }
     return 0;
 }
+
 
 
 

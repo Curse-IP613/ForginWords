@@ -4,11 +4,11 @@
 CTEST(test_number_1, switchfunc)
 {
     // Given
-    const int a = 1;
+   // const int a = 1;
     
     
     // When
-    int result = switchfunc (a);
+    int result = switchfunc (1);
 
     // Then
     int expected = 1;
@@ -21,11 +21,11 @@ CTEST(test_number_1, switchfunc)
 CTEST(test_number_2, switchfunc)
 {
     // Given
-    const int a = 2;
+   // const int a = 2;
     
     
     // When
-    int result = switchfunc (a);
+    int result = switchfunc (2);
 
     // Then
     int expected = 2;
@@ -37,11 +37,11 @@ CTEST(test_number_2, switchfunc)
 CTEST(test_number_3, switchfunc)
 {
     // Given
-    const int a = 0;
+ //   const int a = 0;
     
     
     // When
-    int result = switchfunc (a);
+    int result = switchfunc (0);
 
     // Then
     int expected = 0;
