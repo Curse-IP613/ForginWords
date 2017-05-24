@@ -7,5 +7,4 @@ int NewDic();
 int FileValidation(char file_name[20]);
 void dirlist();
 int ChoiceDict();
-int switchfunc(int x);
 #endif

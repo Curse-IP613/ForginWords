@@ -1,10 +1,4 @@
-#include <dirent.h>
-#include <fstream>
-#include <iostream>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-using namespace std;
+
 
 /*int switchfunc(x){
 Number = x;
@@ -34,6 +28,14 @@ Number = x;
     }
 }
 */
+#include <dirent.h>
+#include <fstream>
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+using namespace std;
+
 void dirlist()
 {
     DIR *dir;
@@ -136,4 +138,5 @@ int ChoiceDict()
 
     return 0;
 }
+
 
