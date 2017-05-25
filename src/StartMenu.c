@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <iostream>
 #include "ForginWords.h"
-#include "dictionary.c"
-#include "newdic.c"
+
 using namespace std;
 
 int main()
@@ -10,23 +9,23 @@ int main()
     int Number;
     while(1)
 {
-    system ("clear");
-    printf("1-Choice dictionary \n");
-    printf("2-Create personal dictionary \n");
-    printf("0-Exit \n");
-    printf("Enter number point menu: \n");
+    //system ("clear");
+    cout << "1-Choice dictionary";
+    cout << "2-Create personal dictionary";
+    cout << "0-Exit";
+    cout << "Enter number point menu: ";
     cin>>Number;
     switch (Number) {
     case 1:
 {
-	system ("clear");
+	//system ("clear");
 	ChoiceDict();
 	getchar();
         break;
 }
     case 2:
 {
-	system ("clear");
+	//system ("clear");
 	NewDic();
 	getchar();
         break;
