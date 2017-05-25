@@ -10,9 +10,9 @@ int main()
     while(1)
 {
     //system ("clear");
-    cout << "1-Choice dictionary";
-    cout << "2-Create personal dictionary";
-    cout << "0-Exit";
+    cout << "1-Choice dictionary" << endl;
+    cout << "2-Create personal dictionary" << endl;
+    cout << "0-Exit"<< endl;
     cout << "Enter number point menu: ";
     cin>>Number;
     switch (Number) {

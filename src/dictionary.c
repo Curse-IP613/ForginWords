@@ -41,7 +41,7 @@ void dirlist()
     DIR *dir;
     struct dirent *ent;
     const char * d_name;
-    char directory[255] = "./dictionary/";
+    char directory[255] = "./bin/dictionary/";
     dir = opendir(directory);
     while ((ent = readdir(dir)) != 0){
 	d_name=ent->d_name;
@@ -68,7 +68,7 @@ int ChoiceDict()
     dirlist();
     cout << "Enter name of dictionary:";
     char fileopen[20];
-    char dirname[30] = "./dictionary/";
+    char dirname[30] = "./bin/dictionary/";
     char *estr;
     char str[50];
     char *point;
