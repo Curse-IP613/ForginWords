@@ -1,33 +1,3 @@
-
-
-/*int switchfunc(x){
-Number = x;
-    switch (Number) {
-    case 1:
-{
-	system ("clear");
-	ChoiceDict();
-	getchar();
-        return 1;
-        break;
-}
-    case 2:
-{
-	system ("clear");
-	NewDic();
-	getchar();
-        return 2;
-        break;
-}
-    case 0:
-{
-        return 0;
-        break;
-}
-   default: break;
-    }
-}
-*/
 #include <dirent.h>
 #include <fstream>
 #include <iostream>
@@ -139,4 +109,30 @@ int ChoiceDict()
     return 0;
 }
 
+    int switchfunc(int x){
+    switch (x) {
+    case 1:
+{
+	system ("clear");
+	ChoiceDict();
+	getchar();
+        return 1;
+        break;
+}
+    case 2:
+{
+	system ("clear");
+	NewDic();
+	getchar();
+        return 2;
+        break;
+}
+    case 0:
+{
+        return 0;
+        break;
+}
+   default: break;
+    }
+}
 

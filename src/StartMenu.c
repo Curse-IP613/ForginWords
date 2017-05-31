@@ -4,38 +4,17 @@
 
 using namespace std;
 
+int switchfunc(int x);
+
 int main()
 {
-    int Number;
-    while(1)
-{
-    //system ("clear");
+   int x;
+    
     cout << "1-Choice dictionary" << endl;
     cout << "2-Create personal dictionary" << endl;
     cout << "0-Exit"<< endl;
     cout << "Enter number point menu: ";
-    cin>>Number;
-    switch (Number) {
-    case 1:
-{
-	//system ("clear");
-	ChoiceDict();
-	getchar();
-        break;
+    cin>>x;
+    switchfunc(x);
 }
-    case 2:
-{
-	//system ("clear");
-	NewDic();
-	getchar();
-        break;
-}
-    case 0:{
-        return 0;
-        break;
-}
-   default: break;
-    }
-}
-}
-
+    
