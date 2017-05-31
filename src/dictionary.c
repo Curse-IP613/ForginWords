@@ -1,3 +1,33 @@
+
+
+/*int switchfunc(x){
+Number = x;
+    switch (Number) {
+    case 1:
+{
+	system ("clear");
+	ChoiceDict();
+	getchar();
+        return 1;
+        break;
+}
+    case 2:
+{
+	system ("clear");
+	NewDic();
+	getchar();
+        return 2;
+        break;
+}
+    case 0:
+{
+        return 0;
+        break;
+}
+   default: break;
+    }
+}
+*/
 #include <dirent.h>
 #include <fstream>
 #include <iostream>
@@ -11,7 +41,7 @@ void dirlist()
     DIR *dir;
     struct dirent *ent;
     const char * d_name;
-    char directory[255] = "./bin/dictionary/";
+    char directory[255] = "./dictionary/";
     dir = opendir(directory);
     while ((ent = readdir(dir)) != 0){
 	d_name=ent->d_name;
@@ -38,7 +68,7 @@ int ChoiceDict()
     dirlist();
     cout << "Enter name of dictionary:";
     char fileopen[20];
-    char dirname[30] = "./bin/dictionary/";
+    char dirname[30] = "./dictionary/";
     char *estr;
     char str[50];
     char *point;
@@ -107,32 +137,5 @@ int ChoiceDict()
         cout << "OKEY \n";
 
     return 0;
-}
-
-    int switchfunc(int x){
-    switch (x) {
-    case 1:
-{
-	system ("clear");
-	ChoiceDict();
-	getchar();
-        return 1;
-        break;
-}
-    case 2:
-{
-	system ("clear");
-	NewDic();
-	getchar();
-        return 2;
-        break;
-}
-    case 0:
-{
-        return 0;
-        break;
-}
-   default: break;
-    }
 }
 

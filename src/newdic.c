@@ -67,7 +67,7 @@ int checkFile(char *filepath)
 int NewDic()
 {
     int number = 0;
-    char dirname[30] = "./bin/dictionary/";
+    char dirname[30] = "./dictionary/";
     char r[5] = ".txt";
     char namefile[10];
     char word[100];
