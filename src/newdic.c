@@ -8,17 +8,18 @@ using namespace std;
 
 void checkNumber(int &number)
 {
-    cout << "Enter the number of words you want to enter\n";
+    cout << "Сколько слов вы хотите добавить?: ";
     cin >> number;
+    cout << endl;
     while (number <= 0) {
-        cout << "Enter correct number of words: ";
+        cout << "Введите корректное число: ";
         cin >> number;
     }
 }
 
 void createFile(char *filepath, char *word, char *namefile, int &number)
 {
-    cout << "Enter words (english.russian)\n";
+    cout << "Введите слова (word.translate)\n";
     ofstream fout(filepath);
     for (int i = 0; i <= number; i++) {
         cin.getline(word, 80);
@@ -27,7 +28,8 @@ void createFile(char *filepath, char *word, char *namefile, int &number)
             fout << endl;
     }
     fout.close();
-    cout << "Dictionary " << namefile << " is created\n";
+    cout << "Словарь " << namefile << " создан\n";
+    cout << endl;
 }
 
 int checkFile(char *filepath)
@@ -37,8 +39,9 @@ int checkFile(char *filepath)
     ifstream file;
     file.open(filepath);
     if (file) {
-        cout << "File is exist. Do you want to replace this file? (Y/N)\n";
+        cout << "Файл уже существует. Хотите заменить его? (Y/N): ";
         cin >> otvet;
+	cout << endl;
         if (otvet == 'Y' || otvet == 'y')
             return 1;
         else {
@@ -54,7 +57,7 @@ int checkFile(char *filepath)
                             number = 1;
                             return 2;
                         } else
-                            cout << "Enter Y or N !!!\nType your answer: ";
+                            cout << "Введите Y или N !!!\n ";
                     }
                     cin >> otvet;
                 } while (number != 1);
@@ -67,15 +70,16 @@ int checkFile(char *filepath)
 int NewDic()
 {
     int number = 0;
-    char dirname[30] = "./dictionary/";
+    char dirname[30] = "../bin/dictionary/";
     char r[5] = ".txt";
-    char namefile[10];
+    char namefile[30];
     char word[100];
-    char filepath[50] = "";
-    cout << "Enter file name\n";
+    char filepath[60] = "";
+    cout << "Введите название словаря: ";
     cin >> namefile;
+    cout << endl;
     strncat(filepath, dirname, 30);
-    strncat(filepath, namefile, 10);
+    strncat(filepath, namefile, 30);
     strncat(filepath, r, 4);
     switch (checkFile(filepath)) {
     case 1: {
@@ -84,12 +88,13 @@ int NewDic()
         break;
     }
     case 2: {
-        cout << "Enter file name\n";
+        cout << "Введите название словаря: " ;
         namefile[0] = 0;
         filepath[0] = 0;
         cin >> namefile;
+	cout << endl;
         strncat(filepath, dirname, 30);
-        strncat(filepath, namefile, 10);
+        strncat(filepath, namefile, 30);
         strncat(filepath, r, 4);
         checkNumber(number);
         createFile(filepath, word, namefile, number);
@@ -103,7 +108,4 @@ int NewDic()
     }
     return 0;
 }
-
-
-
 
