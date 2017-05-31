@@ -1,32 +1,33 @@
 #include <stdio.h>
 #include <iostream>
 #include "ForginWords.h"
-#include "dictionary.c"
-#include "newdic.c"
-using namespace std;
 
+using namespace std;
+void greeting();
 int main()
-{
+{	
+    greeting();
     int Number;
     while(1)
 {
-    system ("clear");
-    printf("1-Choice dictionary \n");
-    printf("2-Create personal dictionary \n");
-    printf("0-Exit \n");
-    printf("Enter number point menu: \n");
+    //system ("clear");
+    cout << "1 - Выбрать словарь"<< endl;
+    cout << "2 - Создать свой словарь"<< endl;
+    cout << "0 - Выйти" << endl << endl;
+    cout << "Введите один из пунктов меню: ";
     cin>>Number;
+    cout << endl;
     switch (Number) {
     case 1:
 {
-	system ("clear");
+	//system ("clear");
 	ChoiceDict();
 	getchar();
         break;
 }
     case 2:
 {
-	system ("clear");
+	//system ("clear");
 	NewDic();
 	getchar();
         break;
@@ -38,5 +39,12 @@ int main()
    default: break;
     }
 }
+}
+
+void greeting(){
+cout << "              Добро пожаловать!" << endl 
+<< "         Заучивание иностранных слов" << endl
+<< "                 Version: 1.0" << endl 
+<< "     Developers: Атажанов, Бережинский, Семин" << endl << endl;
 }
 
