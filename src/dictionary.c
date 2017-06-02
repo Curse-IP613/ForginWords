@@ -6,20 +6,7 @@
 #include <string.h>
 using namespace std;
 int concl(int);
-/*int concl(int x){
- cout << "       Вы знаете " << rightans << " слов(а)" << endl;
-    if (x == 10){
-	cout <<"Вы просто невероятны! Наши поздравления!"<<endl;
-	return 10;    
-    }else if (x > 5){
-	return 5;
-	cout <<"Отлично, мы уверены вы можете лучше!"<<endl;  
-    }else{
-	return 0; 
-	cout <<"Мы верим, вы можете лучше! Попробуйте еще раз!"<<endl;
-	}
-}
-*/
+
 void dirlist()
 {
     DIR *dir;
