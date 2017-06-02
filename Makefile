@@ -24,6 +24,8 @@ clean :
 	@echo "Cleaning binaries"
 	@rm -f bin/dict bin/dict-test
 	@echo "All files have been cleaned."
+	@rm -rf build
+	@echo "Directory build is delete"
 
 -include build/*.d
 
