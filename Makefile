@@ -7,14 +7,14 @@ all :
 bin/dict : build/StartMenu.o build/dictionary.o build/newdic.o
 	g++ build/StartMenu.o build/dictionary.o build/newdic.o -o bin/dict $(CFLAGS)
 
-build/StartMenu.o : src/StartMenu.c src/ForginWords.h
-	g++ -c src/StartMenu.c -o build/StartMenu.o $(CFLAGS)
+build/StartMenu.o : src/StartMenu.cpp src/ForginWords.h
+	g++ -c src/StartMenu.cpp -o build/StartMenu.o $(CFLAGS)
 
-build/dictionary.o : src/dictionary.c src/ForginWords.h
-	g++ -c src/dictionary.c -o build/dictionary.o $(CFLAGS)
+build/dictionary.o : src/dictionary.cpp src/ForginWords.h
+	g++ -c src/dictionary.cpp -o build/dictionary.o $(CFLAGS)
 
-build/newdic.o : src/newdic.c src/ForginWords.h
-	g++ -c src/newdic.c -o build/newdic.o $(CFLAGS)
+build/newdic.o : src/newdic.cpp src/ForginWords.h
+	g++ -c src/newdic.cpp -o build/newdic.o $(CFLAGS)
 	
 test :
 	make bin/dict-test

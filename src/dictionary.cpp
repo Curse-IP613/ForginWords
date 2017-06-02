@@ -5,15 +5,18 @@
 #include <stdlib.h>
 #include <string.h>
 using namespace std;
-int concl(int);
+int concl(int,int);
 
 void dirlist()
 {
     DIR *dir;
     struct dirent *ent;
     const char * d_name;
-    char directory[255] = "../bin/dictionary/";
-    dir = opendir(directory);
+    if ((dir = opendir("../bin/dictionary")) == NULL)
+	dir = opendir("./bin/dictionary");
+    if (dir == NULL) {
+	cerr << "Error open dir!\n"; return;
+	}
     while ((ent = readdir(dir)) != 0){
 	d_name=ent->d_name;
 	if (strncmp(d_name, ".", strlen(".")))
@@ -36,7 +39,7 @@ int FileValidation(char file_name[20])
 
 int ChoiceDict()
 {	
-    int rightans = 0;
+    int rightans = 0, alltans = 0;
     cout << "====================================="<< endl << endl;
     dirlist();
     cout << endl;
@@ -88,6 +91,7 @@ int ChoiceDict()
 	cout <<"_______________________";
         cout << "\nВы знаете перевод?[Y/N]: ";
         cin >> otvet;
+	alltans++;
         if (otvet == 'Y' || otvet == 'y') {
 	      rightans ++;
 	      cout << endl << endl;
@@ -116,7 +120,7 @@ int ChoiceDict()
                 }
             } while (numotvet != 1);
     }
-	concl(rightans);
+	concl(rightans,alltans);
     getchar();
     if (fclose(pf) == EOF)
         cout << "ERROR \n";
@@ -126,14 +130,14 @@ int ChoiceDict()
     return 0;
 }
 
-int concl(int x){
- cout << "||           Вы знаете " << x << "/10 слов(а)               ||" << endl;
-    if (x == 10){
+int concl(int x, int y){
+ cout << "||           Вы знаете " << x << "/"<<y<<" слов(а)               ||" << endl;
+    if (x == y){
 	cout <<"||     Вы просто невероятны! Наши поздравления!   ||"<<endl;
 	cout << "===================================================="<< endl;
 	return 10;    
     }
-	else if (x >= 5){
+	else if (x >= (y/2)){
 	cout <<"||     Отлично, мы уверены вы можете лучше!       ||"<<endl;
 	cout << "===================================================="<< endl;
 	return 5;  

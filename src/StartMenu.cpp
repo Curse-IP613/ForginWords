@@ -1,16 +1,17 @@
 #include <stdio.h>
 #include <iostream>
+#include <stdlib.h>
 #include "ForginWords.h"
 
 using namespace std;
 void greeting();
 int main()
 {	
+	system ("clear");
     greeting();
     int Number;
     while(1)
 {
-    //system ("clear");
     cout << "====================================="<< endl;
     cout << "||   1 - Выбрать словарь           ||"<< endl;
     cout << "||   2 - Создать свой словарь      ||"<< endl;
@@ -22,14 +23,14 @@ int main()
     switch (Number) {
     case 1:
 {
-	//system ("clear");
+	system ("clear");
 	ChoiceDict();
 	getchar();
         break;
 }
     case 2:
 {
-	//system ("clear");
+	system ("clear");
 	NewDic();
 	getchar();
         break;
