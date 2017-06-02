@@ -12,11 +12,11 @@ int checkNumber(int &number)
     cin >> number;
     cout << endl;
     while (number <= 0) {
-	return 0;
+        return 0;
         cout << "Введите корректное число: ";
         cin >> number;
     }
-	return 1;
+    return 1;
 }
 
 void createFile(char *filepath, char *word, char *namefile, int &number)
@@ -46,7 +46,7 @@ int checkFile(char *filepath)
     if (file) {
         cout << "Файл уже существует. Хотите заменить его? (Y/N): ";
         cin >> otvet;
-	cout << endl;
+        cout << endl;
         if (otvet == 'Y' || otvet == 'y')
             return 1;
         else {
@@ -93,12 +93,12 @@ int NewDic()
         break;
     }
     case 2: {
-	cout << "====================================="<< endl << endl;
+        cout << "====================================="<< endl << endl;
         cout << "Введите название словаря: " ;
         namefile[0] = 0;
         filepath[0] = 0;
         cin >> namefile;
-	cout << endl;
+        cout << endl;
         strncat(filepath, dirname, 30);
         strncat(filepath, namefile, 30);
         strncat(filepath, r, 4);
