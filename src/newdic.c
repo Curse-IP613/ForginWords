@@ -21,6 +21,7 @@ int checkNumber(int &number)
 
 void createFile(char *filepath, char *word, char *namefile, int &number)
 {
+    cout << "====================================="<< endl;
     cout << "Введите слова (word.translate)\n";
     ofstream fout(filepath);
     for (int i = 0; i <= number; i++) {
@@ -30,7 +31,9 @@ void createFile(char *filepath, char *word, char *namefile, int &number)
             fout << endl;
     }
     fout.close();
+    cout << "====================================="<< endl;
     cout << "Словарь " << namefile << " создан\n";
+    cout << "====================================="<< endl;
     cout << endl;
 }
 
@@ -77,9 +80,9 @@ int NewDic()
     char namefile[30];
     char word[100];
     char filepath[60] = "";
+    cout << "====================================="<< endl << endl;
     cout << "Введите название словаря: ";
     cin >> namefile;
-    cout << endl;
     strncat(filepath, dirname, 30);
     strncat(filepath, namefile, 30);
     strncat(filepath, r, 4);
@@ -90,6 +93,7 @@ int NewDic()
         break;
     }
     case 2: {
+	cout << "====================================="<< endl << endl;
         cout << "Введите название словаря: " ;
         namefile[0] = 0;
         filepath[0] = 0;
