@@ -3,6 +3,7 @@ CFLAGS = -Wall -Werror -MP -MMD
 
 all :
 	make bin/dict
+	@mkdir build
 
 bin/dict : build/StartMenu.o build/dictionary.o build/newdic.o
 	g++ build/StartMenu.o build/dictionary.o build/newdic.o -o bin/dict $(CFLAGS)
