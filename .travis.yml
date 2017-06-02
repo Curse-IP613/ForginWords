@@ -1,7 +1,3 @@
 language: cpp
-<<<<<<< HEAD
-script: make
-=======
 script: make && make test
->>>>>>> tests
 install: true
