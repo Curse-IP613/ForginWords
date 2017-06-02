@@ -1,7 +1,5 @@
 #include <ctest.h>
 #include "../src/ForginWords.h"
-#include "dictionary.c"
-#include "newdic.c"
 
 CTEST(test_name_engadj, FileValidation)
 { 
