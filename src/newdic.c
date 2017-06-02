@@ -6,7 +6,7 @@
 
 using namespace std;
 
-int checkNumber(int number)
+int checkNumber(int &number)
 {
     cout << "Сколько слов вы хотите добавить?: ";
     cin >> number;
