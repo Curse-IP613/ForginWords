@@ -5,7 +5,21 @@
 #include <stdlib.h>
 #include <string.h>
 using namespace std;
-
+int concl(int);
+/*int concl(int x){
+ cout << "       Вы знаете " << rightans << " слов(а)" << endl;
+    if (x == 10){
+	cout <<"Вы просто невероятны! Наши поздравления!"<<endl;
+	return 10;    
+    }else if (x > 5){
+	return 5;
+	cout <<"Отлично, мы уверены вы можете лучше!"<<endl;  
+    }else{
+	return 0; 
+	cout <<"Мы верим, вы можете лучше! Попробуйте еще раз!"<<endl;
+	}
+}
+*/
 void dirlist()
 {
     DIR *dir;
@@ -52,7 +66,6 @@ int ChoiceDict()
 
     strncat(dirname, fileopen, 20);
     if(FileValidation(dirname)==0){
-	//cout<<endl<<"func return 0"<< endl << endl;
 	return 0;
 	}
     FILE *pf;
@@ -83,13 +96,11 @@ int ChoiceDict()
             cout << str[i];
         cout << "\n Вы знаете перевод?[Y/N]: ";
         cin >> otvet;
-
         if (otvet == 'Y' || otvet == 'y') {
 	      rightans ++;
 	      cout << endl;
-           // cout << "next: \n ";
         } else if (otvet == 'N' || otvet == 'n') {
-            cout << point << endl;
+            cout << "RUS: " << point << endl;
         } else
             do {
                 cout << "Введите корректный ответ!\n";
@@ -103,17 +114,11 @@ int ChoiceDict()
                     cout << "next: \n ";
                 } else if (otvet == 'N' || otvet == 'n') {
                     numotvet = 1;
-                    cout << "  RUS: " << point << endl;
+                    cout << "RUS: " << point << endl;
                 }
             } while (numotvet != 1);
     }
-    cout << "       Вы знаете " << rightans << " слов(а)" << endl;
-    if (rightans == 10)
-	cout <<"Вы просто невероятны! Наши поздравления!"<<endl;
-    else if (rightans > 5)
-	cout <<"Отлично, мы уверены вы можете лучше!"<<endl;  
-    else 
-	cout <<"Мы верим, вы можете лучше! Попробуйте еще раз!"<<endl;
+	concl(rightans);
     getchar();
     if (fclose(pf) == EOF)
         cout << "ERROR \n";
@@ -121,4 +126,20 @@ int ChoiceDict()
         cout << "Exit... \n";
 
     return 0;
+}
+
+int concl(int x){
+ cout << "       Вы знаете " << x << " слов(а)" << endl;
+    if (x == 10){
+	cout <<"Вы просто невероятны! Наши поздравления!"<<endl;
+	return 10;    
+    }
+	else if (x >= 5){
+	cout <<"Отлично, мы уверены вы можете лучше!"<<endl;
+	return 5;  
+    }
+	else{ 
+	cout <<"Мы верим, вы можете лучше! Попробуйте еще раз!"<<endl;
+	return 0;
+	}
 }

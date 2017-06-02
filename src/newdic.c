@@ -6,15 +6,17 @@
 
 using namespace std;
 
-void checkNumber(int &number)
+int checkNumber(int number)
 {
     cout << "Сколько слов вы хотите добавить?: ";
     cin >> number;
     cout << endl;
     while (number <= 0) {
+	return 0;
         cout << "Введите корректное число: ";
         cin >> number;
     }
+	return 1;
 }
 
 void createFile(char *filepath, char *word, char *namefile, int &number)
